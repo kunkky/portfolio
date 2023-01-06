@@ -380,6 +380,13 @@ organization.
           </div>
         @endforeach
         </div>
+              <div class="text-center" style="padding-bottom: 20px">
+        @if ( $total_web > 6)
+           <a href="/web" class="btn btn-primary"> View More</a>
+        @endif
+        <br>
+      </div>
+
       </div>
 
     </section><!-- End Portfolio Section -->
@@ -392,7 +399,8 @@ organization.
           <div class="col-sm-12">
             <div class="title-box text-center">
               <h3 class="title-a">
-                Website Design {{ count ($graphics); }}
+                Website Design
+
               </h3>
               <p class="subtitle-a">
                 developers are gods on earth, We bring unto your screen beauty from codes
@@ -429,6 +437,13 @@ organization.
           </div>
         @endforeach
         </div>
+      <div class="text-center" style="padding-bottom: 20px">
+        @if ( $total_graphic > 6)
+           <a href="/graphic" class="btn btn-primary"> View More</a>
+        @endif
+        <br>
+      </div>
+
       </div>
     </section><!-- End Portfolio Section -->
 
