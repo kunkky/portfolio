@@ -611,7 +611,7 @@ organization.
     </section><!-- End Blog Section -->
 
     <!-- ======= Contact Section ======= -->
-    <section id="contact" class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(assets/img/overlay-bg.jpg)">
+    <section id="contactus" class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(assets/img/overlay-bg.jpg)">
       <div class="overlay-mf"></div>
       <div class="container">
         <div class="row">
@@ -626,31 +626,41 @@ organization.
                       </h5>
                     </div>
                     <div>
-                      <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                        @if(Session::has('message'))
+                        <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
+                        @endif
+
+                      <form action="/contact" method="post" class="php-email-form">
+                        @csrf
+
                         <div class="row">
                           <div class="col-md-12 mb-3">
                             <div class="form-group">
+                            <label for="name"> @error ('name'){{$message}} @enderror</label>
                               <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
                             </div>
                           </div>
                           <div class="col-md-12 mb-3">
                             <div class="form-group">
+                            <label for="name"> @error ('email'){{$message}} @enderror</label>
                               <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
                             </div>
                           </div>
                           <div class="col-md-12 mb-3">
                             <div class="form-group">
+                            <label for="name"> @error ('subject'){{$message}} @enderror</label>
                               <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
                             </div>
                           </div>
                           <div class="col-md-12">
                             <div class="form-group">
+                            <label for="name"> @error ('message'){{$message}} @enderror</label>
                               <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
                             </div>
                           </div>
                           <div class="col-md-12 text-center my-3">
                             <div class="loading">Loading</div>
-                            <div class="error-message"></div>
+
                             <div class="sent-message">Your message has been sent. Thank you!</div>
                           </div>
                           <div class="col-md-12 text-center">
@@ -718,7 +728,6 @@ organization.
   <script src="frontend/assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="frontend/assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="frontend/assets/vendor/typed.js/typed.min.js"></script>
-  <script src="frontend/assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
   <script src="frontend/assets/js/main.js"></script>

@@ -3,6 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\MailSenderController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,3 +34,6 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+//send mail route
+    Route::post('contact', [MailSenderController::class, 'sendMail']);
