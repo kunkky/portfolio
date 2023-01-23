@@ -33,6 +33,9 @@ Route::get('edit/{id}', [JobController::class,'requestview'])->middleware(['auth
 
 Route::Post('/EditJob', [JobController::class, 'EditJob'])->middleware(['auth', 'verified'])->name('EditJob');
 
+Route::Post('/DeleteJob', [JobController::class, 'DeleteJob'])->middleware(['auth', 'verified'])->name('EditJob');
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

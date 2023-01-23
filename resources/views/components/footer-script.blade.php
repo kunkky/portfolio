@@ -22,11 +22,12 @@
   <!-- Datatable--->
   <script>
     //delete was click show dialog
-    function delete_job(id,name)
+    function delete_job(id,name,filetodelete)
     {
         //customize modal
          $("#nametodelete").text(name);
          $("#idtodelete").text(id);
+         $("#filetodelete").text(filetodelete);
          //open modal
             $("#exampleModal").modal('show');
             //delete script
@@ -41,41 +42,22 @@
             var name = $("#nametodelete").text();
 
             var id = $("#idtodelete").text();
+            var filename = $("#filetodelete").text();
 
-            alert("you want to delete "+name +id);
+           // alert("you want to delete "+name +id);
 
-data=id;
-const XHR = new XMLHttpRequest();
 
-  const urlEncodedDataPairs = [];
+            $.post("/DeleteJob",
+            {
+                 '_token': $('meta[name=csrf-token]').attr('content'),
+                id: id,
+                name:name,
+                filename:filename
+            },
+            function(data, status){
+                alert("Data: " + data + "\nStatus: " + status);
+            });
 
-  // Turn the data object into an array of URL-encoded key/value pairs.
-  for (const [name, value] of Object.entries(data)) {
-    urlEncodedDataPairs.push(`${encodeURIComponent(name)}=${encodeURIComponent(value)}`);
-  }
-
-  // Combine the pairs into a single string and replace all %-encoded spaces to
-  // the '+' character; matches the behavior of browser form submissions.
-  const urlEncodedData = urlEncodedDataPairs.join('&').replace(/%20/g, '+');
-
-  // Define what happens on successful data submission
-  XHR.addEventListener('load', (event) => {
-    alert('Yeah! Data sent and response loaded.');
-  });
-
-  // Define what happens in case of an error
-  XHR.addEventListener('error', (event) => {
-    alert('Oops! Something went wrong.');
-  });
-
-  // Set up our request
-  XHR.open('POST', '/delete');
-
-  // Add the required HTTP header for form data POST requests
-  XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-  // Finally, send our data.
-  XHR.send(urlEncodedData);
 
         });
 

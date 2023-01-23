@@ -101,4 +101,16 @@ class JobController extends Controller
               }
         }
 
+        function DeleteJob(Request $request){
+            $deleted = Job::where('id', '=', $request->id)->delete();
+            if($deleted){
+                File::delete($filename);
+                return("Job deleted");
+
+            }
+            else{
+                return("Job not deleted");
+            }
+        }
+
 }
