@@ -5707,7 +5707,6 @@ fieldset:disabled .btn {
 .alert-success {
   --bs-alert-color: #125237;
   --bs-alert-bg: #d5f5e7;
-  --bs-alert-border-color: #c0f0dc;
 }
 
 .alert-success .alert-link {
@@ -5717,7 +5716,6 @@ fieldset:disabled .btn {
 .alert-info {
   --bs-alert-color: #075260;
   --bs-alert-bg: #cff5fc;
-  --bs-alert-border-color: #b8f0fa;
 }
 
 .alert-info .alert-link {
@@ -5727,7 +5725,6 @@ fieldset:disabled .btn {
 .alert-warning {
   --bs-alert-color: #973b26;
   --bs-alert-bg: #fee0d9;
-  --bs-alert-border-color: #fed0c6;
 }
 
 .alert-warning .alert-link {
@@ -5747,7 +5744,6 @@ fieldset:disabled .btn {
 .alert-light {
   --bs-alert-color: #5d5e60;
   --bs-alert-bg: #fbfbfc;
-  --bs-alert-border-color: #f8f9fa;
 }
 
 .alert-light .alert-link {
@@ -5756,9 +5752,7 @@ fieldset:disabled .btn {
 
 .alert-dark {
   --bs-alert-color: #1f2b3e;
-  --bs-alert-bg: #d6dae1;
-  --bs-alert-border-color: #c2c8d1;
-}
+  --bs-alert-bg: #d6dae1;}
 
 .alert-dark .alert-link {
   color: #192232;
@@ -5767,7 +5761,6 @@ fieldset:disabled .btn {
 .alert-white {
   --bs-alert-color: #666666;
   --bs-alert-bg: white;
-  --bs-alert-border-color: white;
 }
 
 .alert-white .alert-link {
@@ -20133,9 +20126,6 @@ fieldset:disabled .btn {
   box-shadow: none;
 }
 
-.alert-dismissible .btn-close {
-  background-image: none;
-}
 
 .alert {
   z-index: 999;

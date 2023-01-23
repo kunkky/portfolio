@@ -22,10 +22,17 @@ Route::get('/', function () {
 */
     Route::get('/', [JobController::class, 'indexshow']);
 
+//admin Dashboard
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/dashboard', [JobController::class, 'dashboardshow'])->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::Post('/UploadJob', [JobController::class, 'UploadJobs'])->middleware(['auth', 'verified'])->name('uploadJob');
+
+Route::get('edit/{id}', [JobController::class,'requestview'])->middleware(['auth', 'verified'])->name('EditJob');
+
+Route::Post('/EditJob', [JobController::class, 'EditJob'])->middleware(['auth', 'verified'])->name('EditJob');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

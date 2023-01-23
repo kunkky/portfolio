@@ -497,7 +497,8 @@ organization.
     </div><!-- End Testimonials Section -->
 
     <!-- ======= Blog Section ======= -->
-    <section id="blog" class="blog-mf sect-pt4 route">
+
+<!--    <section id="blog" class="blog-mf sect-pt4 route">
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
@@ -608,7 +609,9 @@ organization.
           </div>
         </div>
       </div>
-    </section><!-- End Blog Section -->
+    </section>
+    -->
+    <!-- End Blog Section -->
 
     <!-- ======= Contact Section ======= -->
     <section id="contactus" class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(assets/img/overlay-bg.jpg)">
@@ -712,7 +715,7 @@ organization.
       <div class="row">
         <div class="col-sm-12">
           <div class="copyright-box">
-            <p class="copyright">&copy; Copyright <strong>Kunkky</strong>. All Rights Reserved</p>
+            <p class="copyright">&copy; Copyright <strong>Ademuyiwa Adekunle</strong>. All Rights Reserved</p>
           </div>
         </div>
       </div>

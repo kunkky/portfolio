@@ -20,6 +20,7 @@ return new class extends Migration
           $table->string('status');
             $table->string('job_type');
             $table->string('avatar');
+            $table->string('job_date');
             $table->text('description');
 
         });
