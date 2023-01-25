@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Job;
 //import Reirect
 use Illuminate\Support\Facades\Redirect;
+
+
 class JobController extends Controller
 {
     //
@@ -15,11 +17,25 @@ class JobController extends Controller
            // $graphics= Job::where("job_type","like", "%graphics%")->get();
            $graphics =  Job::where('job_type', 'Like', 'graphics')->orderByDesc('id')->limit(6)->get();
             $graphics_count= count(Job::where("job_type","Like","graphics")->get());
-            $web_count= count(Job::where("job_type","Like","web design")->get());
-            $web= Job::where("job_type","like", "web design")->orderByDesc('id')->limit(6)->get();
+            $web_count= count(Job::where("job_type","Like","web")->get());
+            $web= Job::where("job_type","like", "web")->orderByDesc('id')->limit(6)->get();
 
             return view('welcome', ["all"=>$all_jobs,"graphics"=>$graphics,"web"=>$web, "total_graphic"=>$graphics_count,"total_web"=>$web_count]);
         }
+        function ShowWeb (){
+
+        $web = Job::where("job_type","like", "web")->latest()->simplePaginate(2);
+
+        return view('web', compact('web'));
+
+        }
+        function ShowGraphics (){
+        $graphics = Job::where("job_type","like", "graphics")->latest()->simplePaginate(2);
+
+        return view('graphics', compact('graphics'));
+
+        }
+
     //adminview
             function dashboardshow (){
                 $all_jobs= Job::all();
@@ -101,16 +117,19 @@ class JobController extends Controller
               }
         }
 
-        function DeleteJob(Request $request){
-            $deleted = Job::where('id', '=', $request->id)->delete();
-            if($deleted){
-                File::delete($filename);
-                return("Job deleted");
+        function DeleteJob($id){
+            //fetch from Database
+             $selectedJob= Job::where("id","=", "$id")->first();
+                if ($selectedJob === null) {
+                    return Redirect::to('/dashboard')->with("message","Job you want to delete does not exist");
+                }
+                else{
 
-            }
-            else{
-                return("Job not deleted");
-            }
+                    if (unlink('jobs/'.$selectedJob->avatar)){
+                         $selectedJob= Job::where("id","=", "$id")->delete();
+                        return Redirect::to('/dashboard')->with("message","Job deleted");
+                    }
+                }
         }
 
 }

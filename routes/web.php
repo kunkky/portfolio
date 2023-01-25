@@ -20,7 +20,11 @@ Route::get('/', function () {
 });
 
 */
+    //home views
     Route::get('/', [JobController::class, 'indexshow']);
+
+    Route::get('/web', [JobController::class, 'ShowWeb']);
+    Route::get('/graphics', [JobController::class, 'ShowGraphics']);
 
 //admin Dashboard
 
@@ -33,7 +37,7 @@ Route::get('edit/{id}', [JobController::class,'requestview'])->middleware(['auth
 
 Route::Post('/EditJob', [JobController::class, 'EditJob'])->middleware(['auth', 'verified'])->name('EditJob');
 
-Route::Post('/DeleteJob', [JobController::class, 'DeleteJob'])->middleware(['auth', 'verified'])->name('EditJob');
+Route::get('/delete/{id}', [JobController::class, 'DeleteJob'])->middleware(['auth', 'verified'])->name('EditJob');
 
 
 

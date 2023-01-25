@@ -29,6 +29,10 @@
 <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
 
 <script type="text/javascript" src="DataTables/datatables.min.js"></script>
+
+
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<!--<script>tinymce.init({selector:'textarea'});</script>-->
 </head>
 <style>
 .small-text{
@@ -139,7 +143,7 @@ text-decoration: underline;
   <main class="main-content position-relative border-radius-lg ">
     <div class="container-fluid py-4">
 
-
+    <div id="message"></div>
                             @if (session('message'))
 
                                 <div class="alert alert-success text-white alert-dismissible fade show shadow" role="alert">

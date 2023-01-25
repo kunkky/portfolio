@@ -22,7 +22,7 @@
   <!-- Datatable--->
   <script>
     //delete was click show dialog
-    function delete_job(id,name,filetodelete)
+    function delete_job(id, name, filetodelete)
     {
         //customize modal
          $("#nametodelete").text(name);
@@ -44,9 +44,10 @@
             var id = $("#idtodelete").text();
             var filename = $("#filetodelete").text();
 
+             window.location.replace("/delete/"+id);
            // alert("you want to delete "+name +id);
 
-
+/*
             $.post("/DeleteJob",
             {
                  '_token': $('meta[name=csrf-token]').attr('content'),
@@ -55,9 +56,13 @@
                 filename:filename
             },
             function(data, status){
-                alert("Data: " + data + "\nStatus: " + status);
-            });
+               // alert("Data: " + data + "\nStatus: " + status);
+             //close modal
+            $("#exampleModal").modal('hide');
+            window.location.replace("/dashboard");
 
+            });
+*/
 
         });
 
